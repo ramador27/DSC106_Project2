@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      figure img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-inline: auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Ricardo Amador</strong> — <em>rmamador@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Patients in Southern and Midwestern states are far more likely to travel out of state for abortion care.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="final_viz/out_of_state_abortions_2020.png" alt="" />
+          <figcaption>The availability of government-funded abortion services in Southern and Midwestern states undermines the claim that geography alone explains why patients travel out of state.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+            <li><strong>Used a sequential pink-to-purple color scheme</strong> — The deeper the shade, the more severe the access issue. This is an intuitive and expressive choice that helps viewers instantly grasp the severity of the data without needing to interpret exact percentages.</li>
+
+            <li><strong>Highlighted top 5 worst-off states in white text</strong> — By using white labels for the top 5 states, I visually separate them from the rest, reinforcing the idea that these states are in a unique crisis of access.</li>
+
+            <li><strong>Did not show actual provider availability</strong> — Omitting clinic count and provider density keeps the narrative tightly focused on geography, but simplifies the story by not addressing other access drivers.</li>
+        </ul>
+      </section>
+
+      <h2>Counter-Proposition: Patients in Southern and Midwestern states travel out of state for abortion care not simply because of where they live, but because their states provide little or no government funding for abortion services.</h2>
+      <section>
+        
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="final_viz/total_government_funded_abortions_by_state_2010.png" alt="" />
+          <figcaption>This map displays the number of government-funded abortions by state in 2010. Many Southern and Midwestern states had a small amount of publicly funded abortions — combining both state and federal sources — suggesting that limited institutional support, not just geography, is a key factor behind high out-of-state travel rates.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+            <li><strong>The visualization hides that the data is from 2010 in small grey footnote text</strong> — While the data year is technically labeled, it's easy to miss. This creates a misleading impression that the map reflects current conditions, even though it’s a full decade older than the out-of-state abortion data it's used to counter.</li>
+
+            <li><strong>The definition of “government funded” is vague and also hidden in fine print</strong> — The map aggregates both federal and state funding but doesn’t clarify this up front. Viewers may assume it reflects strong local/state-level support when it could reflect federally mandated exceptions, subtly distorting interpretation.</li>
+
+            <li><strong>Bin sizes are uneven and misleading</strong> — The middle bin (51–200) is never even used, and the top bin (201–1,000+) spans an enormous range. This exaggerates the appearance of strong support in states like NM or WV, even if they funded far fewer abortions than CA or NY.</li>
+
+            <li><strong>Used saturated red for the largest bin</strong> — The deep red color grabs attention and implies robust institutional support. While visually compelling, it may lead viewers to overestimate how widespread or substantial that support actually was.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>
+          I really enjoyed creating both sides of a persuasive argument through data visualization, and found it a bit funny that in order to learn how to ethically visualize data we would need to unethically visualize data first. The most straightforward part of this project was transforming the data. I used data wrangling techniques, including creating aggregated columns, categorical binning, and color-mapped classes to emphasize patterns in abortion access and funding. I also used white text to highlight the most significant results, drawing the viewer’s attention to key states and enhancing the clarity of the visualization. These transformations were essential in framing each side of the argument and making the data more legible and impactful.
+        </p>
+
+        <p>
+          However, the visual and rhetorical choices, especially around subtle deception were more difficult. I had to think pretty hard about what would constitute ethical versus misleading manipulation. For example, in the counter-proposition visualization, the use of outdated 2010 data was technically disclosed, but the visual placement and styling made it easy to overlook. Similarly, the vague definition of "government-funded" (blending state and federal support) and egregious binning (201-1,000+) exaggerated support in some regions. These were conscious choices meant to challenge the simplicity of the original proposition while exposing how persuasive framing can manipulate perception, even with “neutral” data. One of my favorite subtle deceptions was adding the orange (51–200) bin; even though no states actually fall into that range. It’s easy to overlook, but if you really pay attention to the legend, you’ll notice it doesn’t show up anywhere on the map.
+        </p>
+
+        <p>
+        This project has reshaped how I understand ethical data visualization. Some persuasive choices are fair simplifications, while others end up twisting the meaning of the data, even if they seem clear on the surface. The key ethical boundary, in my view, lies in intentional omission or distortion that misleads viewers without their awareness. In persuasive storytelling, especially around politically charged topics like abortion access, designers have a responsibility to clarify their framing and acknowledge ambiguity. Ethical visualization means embracing that responsibility, even when the goal is persuasion.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
